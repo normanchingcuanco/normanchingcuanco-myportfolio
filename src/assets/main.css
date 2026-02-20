@@ -15,7 +15,7 @@ body {
 body {
   font-family: 'IBM Plex Mono', monospace;
   background-color: #ffffff;
-  padding-top: 70px; /* SINGLE SOURCE OF TRUTH */
+  padding-top: 70px; /* Navbar offset */
 }
 
 section {
@@ -35,7 +35,7 @@ html {
 }
 
 .premium-navbar {
-  background: rgba(10, 10, 10, 0.75) !important;
+  background: rgba(10, 10, 10, 0.85) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   position: fixed;
@@ -52,21 +52,18 @@ html {
 }
 
 .navbar-nav .nav-link {
-  font-weight: 400;
   font-size: 16px;
-  letter-spacing: 0.01em;
-  color: rgba(156, 156, 156, 1);
   padding-left: 18px;
   padding-right: 18px;
+  color: rgba(220,220,220,0.75) !important;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .premium-navlinks .nav-link {
   position: relative;
-  color: rgba(220, 220, 220, 0.7) !important;
 }
 
 .premium-navlinks .nav-link::after {
@@ -120,6 +117,7 @@ html {
   max-width: 520px;
 }
 
+/* HERO IMAGE */
 .hero-img-container {
   position: relative;
   width: 420px;
@@ -137,8 +135,8 @@ html {
   object-position: center 32%;
   border-radius: 50%;
   display: block;
-  position: relative;
   z-index: 2;
+  position: relative;
   box-shadow: 0 22px 60px rgba(0,0,0,0.55);
   border: 1px solid rgba(255,138,0,0.45);
 }
@@ -146,7 +144,10 @@ html {
 .hero-glow-layer {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(255,138,0,0.30), rgba(255,138,0,0.15), transparent 65%);
+  background: radial-gradient(circle,
+    rgba(255,138,0,0.30),
+    rgba(255,138,0,0.15),
+    transparent 65%);
   z-index: 1;
   filter: blur(40px);
 }
@@ -154,7 +155,8 @@ html {
 .hero-depth-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+    to bottom,
     rgba(0,0,0,0.35) 0%,
     transparent 40%,
     transparent 60%,
@@ -186,12 +188,6 @@ html {
   border: 1px solid rgba(255,255,255,0.18);
   padding: 12px 22px;
   border-radius: 999px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-}
-
-.btn-hero-secondary:hover {
-  background: rgba(255,255,255,0.04);
 }
 
 /* ===============================
@@ -207,19 +203,12 @@ html {
   font-weight: 700;
 }
 
-.section-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  color: #333;
-}
-
 .project-card {
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid rgba(0,0,0,0.06);
   overflow: hidden;
   transition: all 0.25s ease;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -247,12 +236,6 @@ html {
 
 .project-body {
   padding: 20px;
-  flex-grow: 1;
-}
-
-.project-desc {
-  font-size: 14px;
-  color: #555;
 }
 
 .project-link {
@@ -305,9 +288,7 @@ html {
   color: #111;
   border: none;
   padding: 12px;
-  font-weight: 600;
   border-radius: 12px;
-  transition: all 0.25s ease;
 }
 
 /* ===============================
@@ -319,9 +300,45 @@ footer {
 }
 
 /* ===============================
-   MOBILE FIX
+   MOBILE IMPROVEMENTS
+================================ */
+@media (max-width: 767px) {
+
+  #landing {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .hero-img-container {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 30px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-lead {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* ===============================
+   MOBILE NAVBAR DROPDOWN
 ================================ */
 @media (max-width: 991px) {
+
+  .navbar .container {
+    position: relative;
+  }
+
   #navlinks.navbar-collapse {
     background: #0e0e0e;
     position: absolute;
@@ -329,7 +346,7 @@ footer {
     left: 0;
     width: 100%;
     padding: 10px 0;
-    z-index: 9999;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
   }
 
   #navlinks .nav-link {
