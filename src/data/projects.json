@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "E-commerce API Documentation",
+    "image": "/images/project1-ecommerce-api.png",
+    "description": "A dynamic e-commerce workflow management system featuring RESTful routes for order processing, real-time inventory updates, and secure user authentication.",
+    "link": "https://documenter.getpostman.com/view/50806062/2sBXc7M4q6",
+    "reverse": false
+  },
+  {
+    "id": 2,
+    "title": "Course Booking API Documentation",
+    "image": "/images/project2-course-api.png",
+    "description": "RESTful API for managing course enrollments featuring authentication and course management.",
+    "link": "",
+    "reverse": true
+  },
+  {
+    "id": 3,
+    "title": "Course Booking App",
+    "image": "/images/project3-course.png",
+    "description": "MERN stack course enrollment system featuring user registration and profile management.",
+    "link": "",
+    "reverse": false
+  },
+  {
+    "id": 4,
+    "title": "E-commerce App",
+    "image": "/images/project4-ecommerce.png",
+    "description": "MERN e-commerce platform featuring dynamic catalog, search, secure checkout and admin dashboard.",
+    "link": "",
+    "reverse": true
+  },
+  {
+    "id": 5,
+    "title": "Airline Booking System Mockup",
+    "image": "/images/project5-airline-booking.png",
+    "description": "Side project showcasing intuitive UI for flight search and booking confirmation.",
+    "link": "",
+    "reverse": false
+  },
+  {
+    "id": 6,
+    "title": "Airline Booking System Prototype",
+    "image": "/images/project6-airline-prototype.png",
+    "description": "Interactive prototype simulating end-to-end airline booking system.",
+    "link": "",
+    "reverse": true
+  }
+]
