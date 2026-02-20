@@ -6,15 +6,30 @@
 
       <div class="row g-5">
 
-        <div class="col-12 col-md-4 text-center" v-for="category in tools" :key="category.name">
+        <!-- FRONT END -->
+        <div
+          class="col-12 col-md-4 text-center"
+          v-for="category in tools"
+          :key="category.name"
+        >
           <h4 class="mb-4">{{ category.name }}</h4>
-          <div class="row g-4 justify-content-center">
-            <div class="col-6" v-for="tool in category.items" :key="tool.name">
-              <div class="tool-card">
-                <img :src="tool.image" class="tool-icon">
-                <p class="mt-3 mb-0">{{ tool.name }}</p>
-              </div>
+
+          <div class="row g-3 justify-content-center">
+
+            <div
+              class="col-6"
+              v-for="tool in category.items"
+              :key="tool.name"
+            >
+              <img
+                :src="tool.image"
+                :alt="tool.name"
+                class="img-fluid tool-icon"
+                :class="{ invert: tool.invert }"
+              >
+              <p class="mt-2">{{ tool.name }}</p>
             </div>
+
           </div>
         </div>
 
@@ -37,10 +52,10 @@ const tools = [
   {
     name: "MERN Stack",
     items: [
-      { name: "MongoDB", image: "/images/mongodb.png" },
+      { name: "MongoDB", image: "/images/mongodb.png", invert: true },
       { name: "Node.js", image: "/images/nodejs.png" },
       { name: "React", image: "/images/react.png" },
-      { name: "Express", image: "/images/express-js.png" }
+      { name: "Express", image: "/images/express-js.png", invert: true }
     ]
   },
   {

@@ -15,10 +15,9 @@ body {
 body {
   font-family: 'IBM Plex Mono', monospace;
   background-color: #ffffff;
-  padding-top: 70px; /* SINGLE SOURCE OF TRUTH for navbar offset */
+  padding-top: 70px; /* SINGLE SOURCE OF TRUTH */
 }
 
-/* Prevent anchor overlap */
 section {
   scroll-margin-top: 80px;
 }
@@ -32,6 +31,17 @@ html {
 ================================ */
 .navbar {
   height: 70px;
+  z-index: 9999;
+}
+
+.premium-navbar {
+  background: rgba(10, 10, 10, 0.75) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 .navbar-brand {
@@ -52,15 +62,6 @@ html {
 
 .navbar-nav .nav-link:hover {
   color: #ffffff;
-}
-
-/* ===============================
-   PREMIUM NAVBAR UPGRADE
-================================ */
-.premium-navbar {
-  background: rgba(10, 10, 10, 0.75) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .premium-navlinks .nav-link {
@@ -119,9 +120,6 @@ html {
   max-width: 520px;
 }
 
-/* ===============================
-   HERO IMAGE SYSTEM (FINAL)
-================================ */
 .hero-img-container {
   position: relative;
   width: 420px;
@@ -132,57 +130,41 @@ html {
   isolation: isolate;
 }
 
-/* Real Image */
 .hero-portrait {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  /* Centers your face properly */
   object-position: center 32%;
-
   border-radius: 50%;
   display: block;
   position: relative;
   z-index: 2;
-
   box-shadow: 0 22px 60px rgba(0,0,0,0.55);
   border: 1px solid rgba(255,138,0,0.45);
 }
 
-/* Gold glow */
 .hero-glow-layer {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle,
-    rgba(255,138,0,0.30),
-    rgba(255,138,0,0.15),
-    transparent 65%
-  );
+  background: radial-gradient(circle, rgba(255,138,0,0.30), rgba(255,138,0,0.15), transparent 65%);
   z-index: 1;
   filter: blur(40px);
 }
 
-/* Cinematic depth overlay */
 .hero-depth-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
+  background: linear-gradient(to bottom,
     rgba(0,0,0,0.35) 0%,
     transparent 40%,
     transparent 60%,
-    rgba(0,0,0,0.25) 100%
-  );
+    rgba(0,0,0,0.25) 100%);
   z-index: 3;
   pointer-events: none;
   border-radius: 50%;
 }
 
-/* ===============================
-   HERO BUTTONS
-================================ */
+/* HERO BUTTONS */
 .btn-hero-primary {
   background: #ff8a00;
   color: #111;
@@ -196,7 +178,6 @@ html {
 .btn-hero-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 30px rgba(255,138,0,0.35);
-  color: #111;
 }
 
 .btn-hero-secondary {
@@ -210,32 +191,84 @@ html {
 }
 
 .btn-hero-secondary:hover {
-  border-color: rgba(255,255,255,0.28);
   background: rgba(255,255,255,0.04);
 }
 
 /* ===============================
-   PROJECT SECTION
+   PROJECTS
 ================================ */
 #projects {
   padding: 80px 0;
 }
 
-.premium-project-row {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 18px;
-  padding: 30px 10px;
-  transition: all 0.25s ease;
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
 }
 
-.premium-project-row:hover {
-  transform: translateY(-4px);
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #333;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
   box-shadow: 0 22px 50px rgba(0,0,0,0.08);
 }
 
+.project-img-wrapper {
+  width: 100%;
+  height: 220px;
+  padding: 18px;
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-img-wrapper img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.project-body {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.project-desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.project-link {
+  color: #ff8a00;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.project-coming {
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+}
+
 /* ===============================
-   TOOLS SECTION
+   TOOLS
 ================================ */
 #tools {
   background: linear-gradient(180deg, #101010, #0b0b0b);
@@ -248,37 +281,33 @@ html {
   color: #ffffff;
 }
 
-.tool-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 20px;
-  padding: 28px 20px;
-  transition: all 0.25s ease;
+.tool-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
-.tool-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255,255,255,0.06);
+.invert {
+  filter: brightness(0) invert(1);
 }
 
 /* ===============================
-   CONTACT SECTION
+   CONTACT
 ================================ */
 #contact {
   padding: 80px 0;
 }
 
-.premium-contact-form {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.05);
-}
-
-.premium-input:focus {
-  border-color: rgba(255,138,0,0.65);
-  box-shadow: 0 0 0 0.2rem rgba(255,138,0,0.15);
+.btn-contact-primary {
+  background: #ff8a00;
+  color: #111;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.25s ease;
 }
 
 /* ===============================
@@ -290,214 +319,22 @@ footer {
 }
 
 /* ===============================
-   MOBILE
+   MOBILE FIX
 ================================ */
-@media (max-width: 767px) {
-
-  body {
-    padding-top: 96px;
-  }
-
-  .hero-img-container {
-    width: 260px;
-    height: 260px;
-  }
-
-}
-
-/* =========================================================
-   ===== MOBILE NAVBAR DROPDOWN FIX (NEW NOTE) =====
-   Fixes burger-menu links being hard to see on mobile/minimized screens
-   by giving the collapsed menu a solid background, padding, and proper
-   link contrast. Works with your premium glass navbar.
-========================================================= */
 @media (max-width: 991px) {
-
-  /* Keep dropdown menu visible above page content */
-  .navbar {
-    position: fixed;
+  #navlinks.navbar-collapse {
+    background: #0e0e0e;
+    position: absolute;
+    top: 70px;
+    left: 0;
     width: 100%;
+    padding: 10px 0;
     z-index: 9999;
   }
 
-  /* Style the collapsed menu container */
-  #navlinks.navbar-collapse {
-    background: rgba(10, 10, 10, 0.96);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-radius: 0 0 14px 14px;
-    margin-top: 10px;
-    padding: 10px 0;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-  }
-
-  /* Make each nav item easier to tap */
   #navlinks .nav-link {
     padding: 12px 22px;
     font-size: 18px;
-    color: rgba(255,255,255,0.88) !important;
-  }
-
-  #navlinks .nav-link:hover {
-    background: rgba(255,138,0,0.12);
     color: #ffffff !important;
   }
-
-  /* Optional: tighten underline positioning for mobile */
-  .premium-navlinks .nav-link::after {
-    bottom: 8px;
-  }
-}
-
-/* =========================================================
-   ===== CONTACT ORANGE BUTTON FIX =====
-   Keeps consistent theme with hero buttons
-========================================================= */
-
-.btn-contact-primary {
-  background: #ff8a00;
-  color: #111;
-  border: none;
-  padding: 12px;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.25s ease;
-}
-
-.btn-contact-primary:hover {
-  background: #ff9d2e;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(255,138,0,0.35);
-  color: #111;
-}
-
-/* =========================================================
-   ===== TOOL ICON SIZE STANDARDIZATION =====
-   Ensures all tool icons are uniform
-========================================================= */
-
-.tool-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  transition: transform 0.25s ease;
-}
-
-/* =========================================================
-   ===== TOOL CARD IMPROVEMENT =====
-   Makes spacing consistent and layout clean
-========================================================= */
-
-.tool-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 20px;
-  padding: 30px 20px;
-  min-height: 150px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  transition: all 0.25s ease;
-}
-
-.tool-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255,138,0,0.45);
-  box-shadow: 0 14px 35px rgba(255,138,0,0.15);
-}
-
-/* =========================================================
-   ===== DARK LOGO NORMALIZATION =====
-   Keeps MongoDB + Express visible in dark bg
-========================================================= */
-
-.invert {
-  filter: brightness(0) invert(1);
-}
-
-/* =========================================================
-   ===== PROJECT CARD LAYOUT (NO CROPPING VERSION) =====
-   Images now fully visible (no object-fit: cover)
-========================================================= */
-
-.project-card {
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid rgba(0,0,0,0.06);
-  overflow: hidden;
-  transition: all 0.25s ease;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 50px rgba(0,0,0,0.08);
-}
-
-/* =====================================
-   IMAGE WRAPPER FIX (NO CROPPING)
-===================================== */
-
-.project-img-wrapper {
-  width: 100%;
-  padding: 20px;
-  background: #f8f8f8;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-img-wrapper img {
-  width: 100%;
-  max-height: 260px;
-  object-fit: contain; /* prevents cropping */
-  display: block;
-}
-
-/* =====================================
-   BODY SECTION
-===================================== */
-
-.project-body {
-  padding: 20px;
-  flex-grow: 1;
-}
-
-/* =========================================================
-   ===== SHORT COURSE SPACING FIX =====
-========================================================= */
-
-.short-course-section {
-  margin-top: 120px; /* increased spacing */
-}
-
-/* =========================================================
-   ===== CONTACT ORANGE BUTTON FIX =====
-   Keeps consistent theme with hero buttons
-========================================================= */
-
-.btn-contact-primary {
-  background: #ff8a00;
-  color: #111;
-  border: none;
-  padding: 12px;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.25s ease;
-}
-
-.btn-contact-primary:hover {
-  background: #ff9d2e;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(255,138,0,0.35);
-  color: #111;
 }

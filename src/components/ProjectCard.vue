@@ -1,40 +1,58 @@
 <template>
-  <!-- SINGLE PROJECT CARD -->
-  <div
-    class="row align-items-center mb-4"
-    :class="{ 'flex-md-row-reverse': project.reverse }"
-  >
-    <div class="col-12 col-md-6">
+  <!-- =========================================================
+       SINGLE PROJECT CARD (NEW GRID VERSION)
+       Matches index.html + Projects.vue layout
+  ========================================================== -->
+
+  <div class="project-card">
+    <div class="project-img-wrapper">
       <img
         :src="project.image"
-        class="img-fluid rounded mb-3 mb-md-0"
         :alt="project.title"
       >
     </div>
 
-    <div class="col-12 col-md-6">
+    <div class="project-body">
       <h5>{{ project.title }}</h5>
 
-      <a v-if="project.link" :href="project.link" target="_blank">
-        View API Documentation
+      <p class="project-desc">
+        {{ project.description }}
+      </p>
+
+      <!-- Link -->
+      <a
+        v-if="project.link"
+        :href="project.link"
+        target="_blank"
+        class="project-link"
+      >
+        View API Documentation →
       </a>
 
-      <p>{{ project.description }}</p>
-
-      <span v-if="!project.link" class="text-muted">Coming Soon</span>
+      <!-- Coming Soon -->
+      <span
+        v-if="project.comingSoon"
+        class="project-coming"
+      >
+        Coming Soon
+      </span>
     </div>
   </div>
 </template>
 
 <script>
 // ===============================
-// NEW:
-// Reusable dynamic project card
+// UPDATED:
+// Reusable grid-based project card
+// Matches new portfolio design system
 // ===============================
 
 export default {
   props: {
-    project: Object
+    project: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>
