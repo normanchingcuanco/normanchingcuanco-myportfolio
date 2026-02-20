@@ -306,6 +306,50 @@ footer {
 }
 
 /* =========================================================
+   ===== MOBILE NAVBAR DROPDOWN FIX (NEW NOTE) =====
+   Fixes burger-menu links being hard to see on mobile/minimized screens
+   by giving the collapsed menu a solid background, padding, and proper
+   link contrast. Works with your premium glass navbar.
+========================================================= */
+@media (max-width: 991px) {
+
+  /* Keep dropdown menu visible above page content */
+  .navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  /* Style the collapsed menu container */
+  #navlinks.navbar-collapse {
+    background: rgba(10, 10, 10, 0.96);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-radius: 0 0 14px 14px;
+    margin-top: 10px;
+    padding: 10px 0;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  }
+
+  /* Make each nav item easier to tap */
+  #navlinks .nav-link {
+    padding: 12px 22px;
+    font-size: 18px;
+    color: rgba(255,255,255,0.88) !important;
+  }
+
+  #navlinks .nav-link:hover {
+    background: rgba(255,138,0,0.12);
+    color: #ffffff !important;
+  }
+
+  /* Optional: tighten underline positioning for mobile */
+  .premium-navlinks .nav-link::after {
+    bottom: 8px;
+  }
+}
+
+/* =========================================================
    ===== CONTACT ORANGE BUTTON FIX =====
    Keeps consistent theme with hero buttons
 ========================================================= */
@@ -434,4 +478,26 @@ footer {
 
 .short-course-section {
   margin-top: 120px; /* increased spacing */
+}
+
+/* =========================================================
+   ===== CONTACT ORANGE BUTTON FIX =====
+   Keeps consistent theme with hero buttons
+========================================================= */
+
+.btn-contact-primary {
+  background: #ff8a00;
+  color: #111;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.btn-contact-primary:hover {
+  background: #ff9d2e;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255,138,0,0.35);
+  color: #111;
 }
