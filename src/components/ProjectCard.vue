@@ -6,6 +6,7 @@
        - Custom button labels
        - Works for Short Courses + Projects
        - Backward compatible with old structure
+       - UPDATED: Supports tertiary & quaternary links
   ========================================================== -->
 
   <div class="project-card">
@@ -23,10 +24,7 @@
         {{ project.description }}
       </p>
 
-      <!-- =====================================================
-           PRIMARY LINK (Live / Documentation)
-           NEW: supports dynamic label
-      ====================================================== -->
+      <!-- PRIMARY LINK -->
       <a
         v-if="project.primaryLink"
         :href="project.primaryLink"
@@ -36,10 +34,7 @@
         {{ project.primaryLabel || "View Project →" }}
       </a>
 
-      <!-- =====================================================
-           SECONDARY LINK (GitHub Repo)
-           NEW: allows GitHub link display
-      ====================================================== -->
+      <!-- SECONDARY LINK -->
       <a
         v-if="project.secondaryLink"
         :href="project.secondaryLink"
@@ -49,9 +44,27 @@
         {{ project.secondaryLabel || "View GitHub →" }}
       </a>
 
-      <!-- =====================================================
-           BACKWARD COMPATIBILITY (OLD link PROPERTY)
-      ====================================================== -->
+      <!-- NEW: TERTIARY LINK -->
+      <a
+        v-if="project.tertiaryLink"
+        :href="project.tertiaryLink"
+        target="_blank"
+        class="project-link"
+      >
+        {{ project.tertiaryLabel }}
+      </a>
+
+      <!-- NEW: QUATERNARY LINK -->
+      <a
+        v-if="project.quaternaryLink"
+        :href="project.quaternaryLink"
+        target="_blank"
+        class="project-link"
+      >
+        {{ project.quaternaryLabel }}
+      </a>
+
+      <!-- BACKWARD COMPATIBILITY -->
       <a
         v-if="project.link && !project.primaryLink"
         :href="project.link"
@@ -80,6 +93,7 @@
 // - Multiple links
 // - Custom labels
 // - Capstone support
+// - NEW: tertiary & quaternary links
 // ===============================
 
 export default {

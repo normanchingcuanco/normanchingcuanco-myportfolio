@@ -7,6 +7,7 @@
        - Updated Allure project
        - Preserved ALL original projects
        - Short Courses now real projects
+       - UPDATED: Combined Static + VueJS into ONE Capstone 1
   ========================================================== -->
   <section id="projects" class="py-5">
     <div class="container">
@@ -29,6 +30,7 @@
       <!-- =========================================================
            SHORT COURSES CAPSTONE (SAME CARD SYSTEM)
            UPDATED: Now uses real capstone data
+           UPDATED: Combined Static + VueJS into ONE Capstone 1
       ========================================================== -->
 
       <div class="short-course-section mt-5">
@@ -123,26 +125,24 @@ const projects = [
 /*
   =========================================================
   SHORT COURSES DATA (UPDATED WITH REAL CAPSTONES)
+  UPDATED: Combined Static + VueJS into ONE Capstone 1
   =========================================================
 */
 const shortCourses = [
   {
-    title: "Capstone 1 – HTML/CSS Portfolio",
+    title: "Capstone 1 – Developer Portfolio",
     image: "/images/online-learning.png",
     description:
-      "Responsive developer portfolio built purely with HTML5 and CSS3. Focused on responsive layouts, semantic structure, and clean UI presentation.",
+      "Developer portfolio built in two implementations: a static HTML/CSS version and a modern Vue 3 component-based version. Focused on responsive layouts, semantic structure, reusable components, and clean UI presentation.",
     primaryLink: "https://capstone1-chingcuanco-portfolio.vercel.app/",
-    primaryLabel: "View Live Site →",
+    primaryLabel: "View Static Live →",
     secondaryLink: "https://github.com/normanchingcuanco/capstone1_chingcuanco_portfolio",
-    secondaryLabel: "View GitHub →"
-  },
-  {
-    title: "Capstone 1 – VueJS Portfolio Version",
-    image: "/images/education.png",
-    description:
-      "Modern Vue 3 implementation of the developer portfolio using reusable components, reactive data structures, and structured project rendering.",
-    secondaryLink: "https://github.com/normanchingcuanco/capstone1-vuejs",
-    secondaryLabel: "View GitHub →"
+    secondaryLabel: "View Static GitHub →",
+    // NEW: Vue links added below (third & fourth link support handled in ProjectCard)
+    tertiaryLink: "https://normanchingcuanco-myportfolio.vercel.app/",
+    tertiaryLabel: "View Vue Live →",
+    quaternaryLink: "https://github.com/normanchingcuanco/normanchingcuanco-myportfolio",
+    quaternaryLabel: "View Vue GitHub →"
   },
   {
     title: "Capstone 2 – E-commerce Backend API",
