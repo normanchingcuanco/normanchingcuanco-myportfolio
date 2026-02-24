@@ -1,7 +1,11 @@
 <template>
   <!-- =========================================================
-       SINGLE PROJECT CARD (NEW GRID VERSION)
-       Matches index.html + Projects.vue layout
+       SINGLE PROJECT CARD (UPDATED VERSION)
+       Now supports:
+       - Multiple links (Live + GitHub)
+       - Custom button labels
+       - Works for Short Courses + Projects
+       - Backward compatible with old structure
   ========================================================== -->
 
   <div class="project-card">
@@ -19,9 +23,37 @@
         {{ project.description }}
       </p>
 
-      <!-- Link -->
+      <!-- =====================================================
+           PRIMARY LINK (Live / Documentation)
+           NEW: supports dynamic label
+      ====================================================== -->
       <a
-        v-if="project.link"
+        v-if="project.primaryLink"
+        :href="project.primaryLink"
+        target="_blank"
+        class="project-link"
+      >
+        {{ project.primaryLabel || "View Project →" }}
+      </a>
+
+      <!-- =====================================================
+           SECONDARY LINK (GitHub Repo)
+           NEW: allows GitHub link display
+      ====================================================== -->
+      <a
+        v-if="project.secondaryLink"
+        :href="project.secondaryLink"
+        target="_blank"
+        class="project-link"
+      >
+        {{ project.secondaryLabel || "View GitHub →" }}
+      </a>
+
+      <!-- =====================================================
+           BACKWARD COMPATIBILITY (OLD link PROPERTY)
+      ====================================================== -->
+      <a
+        v-if="project.link && !project.primaryLink"
         :href="project.link"
         target="_blank"
         class="project-link"
@@ -44,7 +76,10 @@
 // ===============================
 // UPDATED:
 // Reusable grid-based project card
-// Matches new portfolio design system
+// Now supports:
+// - Multiple links
+// - Custom labels
+// - Capstone support
 // ===============================
 
 export default {

@@ -2,6 +2,11 @@
   <!-- =========================================================
        PROJECTS SECTION (MATCHES index.html VERSION)
        Now uses reusable <ProjectCard />
+       UPDATED:
+       - Added Live + GitHub links
+       - Updated Allure project
+       - Preserved ALL original projects
+       - Short Courses now real projects
   ========================================================== -->
   <section id="projects" class="py-5">
     <div class="container">
@@ -23,9 +28,10 @@
 
       <!-- =========================================================
            SHORT COURSES CAPSTONE (SAME CARD SYSTEM)
+           UPDATED: Now uses real capstone data
       ========================================================== -->
 
-      <div class="short-course-section">
+      <div class="short-course-section mt-5">
         <h3 class="text-center mb-4 section-subtitle">
           Short Courses Capstone
         </h3>
@@ -35,19 +41,9 @@
           <div
             class="col-12 col-md-6 col-lg-4"
             v-for="course in shortCourses"
-            :key="course.image"
+            :key="course.title"
           >
-            <div class="project-card short-course-card">
-              <div class="project-img-wrapper short-course-img">
-                <img :src="course.image" alt="Short Courses">
-              </div>
-              <div class="project-body text-center">
-                <h6>Short Courses Project</h6>
-                <p class="project-desc mb-0">
-                  Placeholder for your Short Courses capstone project.
-                </p>
-              </div>
-            </div>
+            <ProjectCard :project="course" />
           </div>
 
         </div>
@@ -67,17 +63,22 @@ import ProjectCard from "@/components/ProjectCard.vue"
 
 /*
   =========================================================
-  PROJECT DATA (MATCHES index.html EXACTLY)
+  PROJECT DATA (ALL ORIGINAL PROJECTS PRESERVED)
+  Updated:
+  - Project 1 → Added GitHub
+  - Project 4 → Replaced Coming Soon with Live + GitHub
   =========================================================
 */
 const projects = [
   {
     title: "E-commerce API Documentation",
     image: "/images/project1-ecommerce-api.png",
-    link: "https://documenter.getpostman.com/view/50806062/2sBXc7M4q6",
     description:
       "A dynamic e-commerce workflow management system featuring RESTful routes for order processing, real-time inventory updates, and secure user authentication. Supports automated order reporting, comprehensive product management, and a publicly documented backend API using Postman.",
-    comingSoon: false
+    primaryLink: "https://documenter.getpostman.com/view/50806062/2sBXc7M4q6",
+    primaryLabel: "View API Documentation →",
+    secondaryLink: "https://github.com/normanchingcuanco/capstone2_ecommerce_api",
+    secondaryLabel: "View GitHub Repository →"
   },
   {
     title: "Course Booking API Documentation",
@@ -94,11 +95,14 @@ const projects = [
     comingSoon: true
   },
   {
-    title: "E-commerce App",
+    title: "Allure – Dating Marketplace Platform",
     image: "/images/project4-ecommerce.png",
     description:
-      "MERN e-commerce platform featuring a dynamic product catalog, real-time search, secure checkout, and an admin dashboard with analytics and user management.",
-    comingSoon: true
+      "Full-stack MERN marketplace platform connecting Filipinos with global users. Features authentication, profile management, transactional logic, service listings, and admin dashboard controls.",
+    primaryLink: "https://allure-eta.vercel.app/",
+    primaryLabel: "View Live Application →",
+    secondaryLink: "https://github.com/normanchingcuanco/allure",
+    secondaryLabel: "View GitHub Repository →"
   },
   {
     title: "Airline Booking System Mockup",
@@ -118,12 +122,45 @@ const projects = [
 
 /*
   =========================================================
-  SHORT COURSES DATA
+  SHORT COURSES DATA (UPDATED WITH REAL CAPSTONES)
   =========================================================
 */
 const shortCourses = [
-  { image: "/images/online-learning.png" },
-  { image: "/images/graduation.png" },
-  { image: "/images/education.png" }
+  {
+    title: "Capstone 1 – HTML/CSS Portfolio",
+    image: "/images/online-learning.png",
+    description:
+      "Responsive developer portfolio built purely with HTML5 and CSS3. Focused on responsive layouts, semantic structure, and clean UI presentation.",
+    primaryLink: "https://capstone1-chingcuanco-portfolio.vercel.app/",
+    primaryLabel: "View Live Site →",
+    secondaryLink: "https://github.com/normanchingcuanco/capstone1_chingcuanco_portfolio",
+    secondaryLabel: "View GitHub →"
+  },
+  {
+    title: "Capstone 1 – VueJS Portfolio Version",
+    image: "/images/education.png",
+    description:
+      "Modern Vue 3 implementation of the developer portfolio using reusable components, reactive data structures, and structured project rendering.",
+    secondaryLink: "https://github.com/normanchingcuanco/capstone1-vuejs",
+    secondaryLabel: "View GitHub →"
+  },
+  {
+    title: "Capstone 2 – E-commerce Backend API",
+    image: "/images/graduation.png",
+    description:
+      "Backend API built with Node.js, Express.js, and MongoDB. Implements authentication, authorization, product management, and order processing.",
+    secondaryLink: "https://github.com/normanchingcuanco/capstone2_ecommerce_api",
+    secondaryLabel: "View GitHub →"
+  },
+  {
+    title: "Capstone 3 – Allure Marketplace App",
+    image: "/images/project4-ecommerce.png",
+    description:
+      "Full-stack MERN marketplace application with authentication, admin dashboard, service listing system, and transactional workflow deployed on Vercel.",
+    primaryLink: "https://allure-eta.vercel.app/",
+    primaryLabel: "View Live App →",
+    secondaryLink: "https://github.com/normanchingcuanco/allure",
+    secondaryLabel: "View GitHub →"
+  }
 ]
 </script>
